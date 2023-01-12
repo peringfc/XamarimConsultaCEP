@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConsultaCEP.Views.AboutPage"
+             xmlns:vm="clr-namespace:ConsultaCEP.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext >
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#ffe4b9</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
+                <ContentView Padding="10,20,0,20" VerticalOptions="FillAndExpand">
+                    <Image Source="cep.png" VerticalOptions="Start" HeightRequest="50" /> 
+                </ContentView>
+                <ContentView Padding="10,20,0,20" VerticalOptions="Center">
+                    <Label Text="Consulta CEP" FontSize="Title"/>
+                </ContentView>
+
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="20,20,20,20" Spacing="10">
+                <Label Text="Informe o CEP" FontSize="Caption"/>
+                <Editor x:Name="TextCep" ClassId="TextCep" Text="06013030"
+                        Visual="Material" Keyboard="Text" MaxLength="9" />
+                
+                <Button Margin="0,9,0,0" Text="Pesquisar"
+                        Clicked="MetodoPesquisaCEP"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+
+
+        <ScrollView Grid.Row="2">
+            <StackLayout Orientation="Vertical" Padding="20,0,30,0" Spacing="10">
+                <Label x:Name="lbl_Cep"  Text="CEP" />
+                <Label x:Name="lbl_logradouro"  Text="logradouro"/>
+                <Label x:Name="lbl_complemento"  Text="complemento"/>
+                <Label x:Name="lbl_bairro"  Text="bairro"/>
+                <Label x:Name="lbl_localidade"  Text="localidade"/>
+                <Label x:Name="lbl_uf"  Text="uf"/>
+                <Label x:Name="lbl_ibge"  Text="ibge"/>
+                <Label x:Name="lbl_gia"  Text="gia"/>
+                <Label x:Name="lbl_ddd"  Text="ddd"/>
+                <Label x:Name="lbl_siafi"  Text="siafi"/>
+
+            </StackLayout>
+
+
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
